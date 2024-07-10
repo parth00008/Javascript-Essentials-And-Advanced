@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marksheet || js</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .main {
+        width: 45%;
+        margin: 1% auto;
+        background: lightcyan;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        padding: 4%;
+        position: relative;
+    }
+
+    .main .content {
+        font-size: 20px;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .main .content-mid {
+        font-size: 20px;
+        text-align: center;
+        margin: 15px 0px 20px;
+    }
+
+    .main .mark {
+        width: 100%;
+    }
+
+    .main .mark li {
+        margin: 5px 0px;
+        font-size: 20px;
+    }
+
+    .main .mark input {
+        padding: 2px 0px;
+        width: 100%;
+        font-size: 18px;
+        /* border: none; */
+        border-radius: 10px;
+        outline: none;
+        margin: 2% 0%;
+    }
+
+    .main .answer {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main .answer button {
+        width: 100%;
+        background-color: blue;
+        color: white;
+        padding: 5px 0px;
+        font-size: 18px;
+        margin: 5px 0px;
+        border-radius: 10px;
+
+    }
+
+    .main .main-ans {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+</style>
+
+<body>
+
+    <!-- main start -->
+    <div class="main">
+        <!-- content start -->
+        <div class="content">
+            <h2>Marksheet for information technology</h2>
+        </div>
+        <div class="content-mid">
+            <h5>Enter Mark</h5>
+        </div>
+        <!-- content end  -->
+        <!-- mark start -->
+        <div class="mark">
+            <ol>
+                <li>C Language <input type="number" id="C"></li>
+                <li>C++ Language <input type="number" id="Cplus"></li>
+                <li>Database <input type="number" id="Database"></li>
+                <li>HTML <input type="number" id="html"></li>
+                <li>CSS <input type="number" id="CSS"></li>
+                <li>php <input type="number" id="php"></li>
+                <li>Core java <input type="number" id="Core"></li>
+            </ol>
+        </div>
+        <!-- mark end -->
+        <!-- answer start -->
+        <div class="answer">
+            <button onclick="check()">Results</button>
+        </div>
+        <div class="main-ans">
+            <div class="answer-botom">
+                <h4 id="ans"></h4>
+            </div>
+            <div class="answer-botom">
+                <h4 id="ans2"></h4>
+            </div>
+        </div>
+        <!-- answer end -->
+    </div>
+    <!-- main end -->
+    <script>
+        function check() {
+            var c = Number(document.querySelector("#C").value);
+            var Cplus = Number(document.querySelector("#Cplus").value);
+            var Database = Number(document.querySelector("#Database").value);
+            var html = Number(document.querySelector("#html").value);
+            var CSS = Number(document.querySelector("#CSS").value);
+            var php = Number(document.querySelector("#php").value);
+            var Core = Number(document.querySelector("#Core").value);
+            var total = c + Cplus + Database + html + CSS + php + Core;
+            var Results = total/700 * 100;
+            var ans = document.querySelector("#ans").textContent = `Total is : ${total}/700`;
+            var ans2 = document.querySelector("#ans2").textContent = `Percentage is : ${Results}%`;
+        }
+    </script>
+</body>
+
+</html>
